@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Info + Travel Explorer</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app" id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <h1 class="logo">
+                    <i class="fas fa-globe-americas"></i>
+                    Country Explorer
+                </h1>
+                <div class="header-controls">
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="favorites-btn" id="favoritesBtn">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorites-count" id="favoritesCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search for a country...">
+                    <div class="loading-spinner" id="searchSpinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <div class="container">
+                <div class="tabs" id="tabs">
+                    <button class="tab-btn active" data-tab="results">Results</button>
+                    <button class="tab-btn" data-tab="favorites">Favorites</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <main class="main-content" id="mainContent">
+            <!-- Results Tab -->
+            <section class="tab-content active" id="results">
+                <div class="container">
+                    <div class="results-grid" id="resultsGrid">
+                        <div class="empty-state" id="emptyState">
+                            <i class="fas fa-search-location"></i>
+                            <h3>Search for a country to get started</h3>
+                            <p>Enter a country name above to explore its details</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Favorites Tab -->
+            <section class="tab-content" id="favorites">
+                <div class="container">
+                    <div class="results-grid" id="favoritesGrid">
+                        <div class="empty-state" id="favoritesEmpty">
+                            <i class="fas fa-heart"></i>
+                            <h3>No favorites yet</h3>
+                            <p>Search for countries and add them to your favorites</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Detail Modal -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2 id="modalTitle"></h2>
+                    <button class="modal-close" id="modalClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="flag-container">
+                        <img id="modalFlag" alt="Country Flag">
+                    </div>
+                    <div class="detail-grid" id="modalDetails"></div>
+                    <div class="map-container" id="mapContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>
